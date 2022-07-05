@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MainComponent } from './Admin-Panel/main/main.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: 'main', 
+  component: MainComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
