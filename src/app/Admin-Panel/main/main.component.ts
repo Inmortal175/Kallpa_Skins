@@ -1,4 +1,12 @@
-import { Component, OnInit, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
+import { MainService } from './../../services/Admin/Main/main.service';
+import { Component, OnInit, ViewChild, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
+
+import { TokenI } from 'src/app/models/auth/Login/token';
+
+import { LoginAlgorithm } from '../login/algoritmos-login/algoritm';
+import { UserI } from 'src/app/models/auth/user/userI';
+import { Router } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-main',
@@ -10,18 +18,83 @@ import { Component, OnInit, ViewChild, AfterViewInit, ElementRef } from '@angula
   '../../../assets/css/app.css', '../../../assets/css/icons.css', '../../../assets/css/dark-theme.css', '../../../assets/css/semi-dark.css',
    '../../../assets/css/header-colors.css']
 })
-export class MainComponent implements OnInit, AfterViewInit {
+export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  constructor() { }
+  BaseUrl = 'http://localhost:8000'
+  
+  profile_img : any = ''
 
-  ngOnInit(): void {
+  private algorithm = new LoginAlgorithm();
+
+  IsAutenticated: boolean = false;
+  token! : TokenI;
+
+  // user datas
+  user_data! : UserI;
+
+  datos$!: Subscription;
+  constructor(
+    private mainService: MainService,
+    private router: Router
+  ) { 
+
   }
 
-  @ViewChild('menu', { static : false }) Ulmenu! : ElementRef<HTMLUListElement>;
+  ngOnInit(){
+    let access = sessionStorage.getItem('token')
+
+    this.token = {
+      access : this.algorithm.deCrypt(access),
+    }
+
+    this.datos$ =  this.mainService.getUserProfile(this.token).subscribe(user => {
+      console.log(user); // prueba
+      this.IsAutenticated = true;
+
+      if (user.profile == null){
+        this.profile_img = null;
+      } else {
+        this.profile_img = this.BaseUrl + user.profile;
+      }
+      
+
+      this.user_data = {
+        id: user.id,
+        email: user.email,
+        username: user.username,
+        nombres: user.nombres,
+        apellido_paterno: user.apellido_paterno,
+        apellido_materno: user.apellido_materno,
+        celular: user.celular,
+        documento_identidad: user.documento_identidad,
+        kallpa_punto: user.kallpa_punto,
+        fecha_nac: user.fecha_nac,
+        profile: user.profile,
+        es_validado: user.es_validado,
+        id_rol: user.id_rol
+      };
+
+    }, error => {
+      console.log(error);
+      if (this.IsAutenticated) {
+        this.IsAutenticated = false;
+        this.router.navigate(['/login']);
+      } else {
+        this.router.navigate(['/login']);
+      }
+
+    })
+
+  }
+
+ hola(){
+  console.log('hola')
+ }
 
   ngAfterViewInit(): void {
-    const menu = this.Ulmenu.nativeElement
-    console.log(menu);
-  };
+  } ;
 
+  ngOnDestroy(): void {
+    this.datos$.unsubscribe();
+  }
 }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="dark-theme" lang="en">
+<html class="dark-theme" lang="en" *ngIf="IsAutenticated"> 
 
 
 <!-- Mirrored from codervent.com/amdash/demo/vertical/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Jul 2022 23:15:28 GMT -->
@@ -9,24 +9,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--favicon-->
 	<link rel="icon" href="../../../../../assets/images/favicon-32x32.png" type="image/png" />
-	<!--plugins-->
-	<!-- <link href="../../../assets/plugins/notifications/css/lobibox.min.css" rel="stylesheet"/>
-	<link href="../../../assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"/>
-	<link href="" rel="stylesheet" />
-	<link href="" rel="stylesheet" />
-	<link href="" />
-	loader-->
-	<!-- <link href="" rel="stylesheet" /> -->
+
 	<script src="../../../assets/js/pace.min.js"></script>
-	<!-- Bootstrap CSS -->
-	<!-- <link href="" rel="stylesheet"> -->
+
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet">
-	<!-- <link href="" rel="stylesheet"> -->
-	<!-- <link href="" rel="stylesheet"> -->
-	<!-- Theme Style CSS -->
-	<!-- <link rel="stylesheet" href="" /> -->
-	<!-- <link rel="stylesheet" href=""  -->
-	<!-- <link rel="stylesheet" href="" /> -->
 </head>
 
 <body onload="info_noti()">
@@ -675,7 +661,7 @@
 											</div>
 										</a>
 									</div>
-									<a href="javascript:;">
+									<a >
 										<div class="text-center msg-footer">View All Messages</div>
 									</a>
 								</div>
@@ -683,11 +669,11 @@
 						</ul>
 					</div>
 					<div class="user-box dropdown">
-						<a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							<img src="../../../assets/images/avatars/avatar-2.png" class="user-img" alt="user avatar">
+						<a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" role="button" (onclick)="hola()" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<img [src]="profile_img || 'https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG.png'" class="user-img" alt="user avatar">
 							<div class="user-info ps-3">
-								<p class="user-name mb-0">Pauline Seitz</p>
-								<p class="designattion mb-0">Web Designer</p>
+								<p class="user-name mb-0"> {{user_data.username}}</p>
+								<p class="designattion mb-0"> {{user_data.email}} </p>
 							</div>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-end">
