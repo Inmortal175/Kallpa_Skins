@@ -808,7 +808,7 @@ a {
 	color: #32393f;
   }
 
-  
+
   .w_chart canvas {
 	position: absolute;
 	top: 0;
@@ -1669,8 +1669,8 @@ a {
 }
 
 .split-bg-primary {
-	background-color: #0c62e0;
-	border-color: #0c62e0
+	background-color: #ffc107;
+	border-color: #ffc107
 }
 
 .split-bg-secondary {
@@ -1723,11 +1723,11 @@ a {
 .text-facebook{
 	color: #3b5998!important
  }
- 
+
  .text-twitter{
 	 color: #55acee!important
   }
- 
+
   .text-youtube{
 	 color: #e52d27!important
   }
