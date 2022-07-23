@@ -1,5 +1,5 @@
 import { MainService } from './../../services/Admin/Main/main.service';
-import { Component, OnInit, ViewChild, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, ElementRef, OnDestroy, Renderer2} from '@angular/core';
 
 import { TokenI } from 'src/app/models/auth/Login/token';
 
@@ -18,7 +18,7 @@ import { Observable, Subscription } from 'rxjs';
   '../../../assets/css/app.css', '../../../assets/css/icons.css', '../../../assets/css/dark-theme.css', '../../../assets/css/semi-dark.css',
    '../../../assets/css/header-colors.css']
 })
-export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
+export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
 
   BaseUrl = 'http://localhost:8000'
   
@@ -35,10 +35,12 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
   datos$!: Subscription;
   constructor(
     private mainService: MainService,
-    private router: Router
+    private router: Router,
+    private renderer : Renderer2
   ) { 
 
   }
+  @ViewChild('hola') hola! : ElementRef;
 
   ngOnInit(){
     let access = sessionStorage.getItem('token')
@@ -48,7 +50,7 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     this.datos$ =  this.mainService.getUserProfile(this.token).subscribe(user => {
-      console.log(user); // prueba
+      // console.log(user); // prueba
       this.IsAutenticated = true;
 
       if (user.profile == null){
@@ -84,17 +86,17 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
       }
 
     })
+  }
+ 
 
+  //logica para desplegar menu de perfil
+  
+  ngAfterViewInit() {
   }
 
- hola(){
-  console.log('hola')
- }
-
-  ngAfterViewInit(): void {
-  } ;
 
   ngOnDestroy(): void {
     this.datos$.unsubscribe();
   }
+  
 }

@@ -85,7 +85,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   //logica para toogleEYE
-  @ViewChild('ToogleEYE', { static: false}) eye_toogle!: ElementRef
+  @ViewChild('ToogleEYE', { static: false}) eye_toogle! : ElementRef
   @ViewChild('eye', { static: false}) eye! : ElementRef
   @ViewChild('password', { static: true}) password! : ElementRef
 
