@@ -1,0 +1,13 @@
+.col-sm-12{
+    width: 100% !important;
+}
+
+
+@media (min-width: 768px){
+    .col-md-4{
+        width: 33.3% !important;
+    }
+    .col-md-8{
+        width: 66.6% !important;
+    }
+}
