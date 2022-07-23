@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CatalogComponent } from './Admin-Panel/catalog/catalog.component';
 import { DistributorComponent } from './Admin-Panel/distributor/distributor.component';
-import { ListProductComponent } from './Admin-Panel/list-product/list-product.component';
+import { ListProductComponent } from './Admin-Panel/catalog/list-product/list-product.component';
 import { LoginComponent } from './Admin-Panel/login/login.component';
 import { MainComponent } from './Admin-Panel/main/main.component';
 import { NF404Component } from './Admin-Panel/NotFound/NotFound/nf404.component';
-import { ProductsDetailsComponent } from './Admin-Panel/products-details/products-details.component';
+import { ProductsDetailsComponent } from './Admin-Panel/catalog/products-details/products-details.component';
 import { RegistroComponent } from './Admin-Panel/registro/registro.component';
+import { AddProductComponent } from './Admin-Panel/catalog/add-product/add-product.component';
+import { UserProfileComponent } from './Admin-Panel/user-profile/user-profile.component';
 
 const routes: Routes = [
   {path: 'login',
@@ -26,16 +27,16 @@ const routes: Routes = [
       },
       {
         path: 'add-product',
-        component: CatalogComponent
+        component: AddProductComponent
+      },
+      {
+        path: 'user-profile',
+        component: UserProfileComponent
       },
   ]},
   {
     path: 'distributor',
     component: DistributorComponent
-  },
-  {
-    path: 'catalog',
-    component: CatalogComponent
   },
   {
     path: 'registro',  
