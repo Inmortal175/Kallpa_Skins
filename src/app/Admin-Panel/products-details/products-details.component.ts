@@ -25,6 +25,7 @@ export class ProductsDetailsComponent implements OnInit {
       const id_producto: number = parseInt(url['id']);
       this.productService.getProductById(id_producto).subscribe(data =>{
         this.product_details = data
+        console.log(data);
         this.productService.getProductImagesById(id_producto).subscribe(image =>{
           this.product_imagen=image
         })

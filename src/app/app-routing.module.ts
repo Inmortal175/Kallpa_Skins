@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CatalogComponent } from './Admin-Panel/catalog/catalog.component';
-import { DashBoardComponent } from './Admin-Panel/dash-board/dash-board.component';
 import { DistributorComponent } from './Admin-Panel/distributor/distributor.component';
 import { ListProductComponent } from './Admin-Panel/list-product/list-product.component';
 import { LoginComponent } from './Admin-Panel/login/login.component';
