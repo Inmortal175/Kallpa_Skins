@@ -17,11 +17,11 @@ export class MainComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
   }
 
-  @ViewChild('menu', { static : false }) Ulmenu! : ElementRef<HTMLUListElement>;
+  //@ViewChild('menu', { static : false }) Ulmenu! : ElementRef<HTMLUListElement>;
 
   ngAfterViewInit(): void {
-    const menu = this.Ulmenu.nativeElement
-    console.log(menu);
+    /*const menu = this.Ulmenu.nativeElement
+    console.log(menu);*/
   };
 
 }
