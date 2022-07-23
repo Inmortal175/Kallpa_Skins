@@ -1,0 +1,42 @@
+
+<form [formGroup]="formDatos" (submit)="send()">
+        <div class="row mb-3">
+        <div class="col-sm-3">
+            <h6 class="'mb-3">Nombres</h6>
+        </div>
+        <div >
+            <input type="text" class ='form-control' id='nombres' formControlName="nombres" >
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-3">
+            <h6 class="mb-0">Apellido Paterno</h6>
+        </div>
+        <div class="col-sm-9 text-secondary" >
+            <input type="text" class="form-control" id="apellidosP"formControlName="apellidosP" >
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-3">
+            <h6 class="mb-0">Apellido Materno</h6>
+        </div>
+        <div class="col-sm-9 text-secondary">
+            <input type="text" class="form-control" formControlName="apellidosM" >
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-3">
+            <h6 class="mb-0">Email</h6>
+        </div>
+        <div class="col-sm-9 text-secondary">
+            <input type="email" class="form-control" formControlName="email" >
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-9 text-secondary">
+            <button [disabled]="formDatos.invalid">Guardar datos</button> >
+        </div>
+    </div>
+</form>
