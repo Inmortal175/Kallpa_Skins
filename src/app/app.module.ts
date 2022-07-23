@@ -10,18 +10,28 @@ import { UserProfileComponent } from './user-profile/main/user-profile.component
 import { HttpClientModule} from '@angular/common/http'; 
 import { ReactiveFormsModule } from '@angular/forms';
 import { ReactiveFComponent } from './user-profile/forms/reactive-f/reactive-f.component';
+import { CatalogComponent } from './Admin-Panel/catalog/catalog.component';
+import { DistributorComponent } from './Admin-Panel/distributor/distributor.component';
+import { ListProductComponent } from './Admin-Panel/list-product/list-product.component';
+import { HomeComponent } from './frontend/home/home.component';
+import { ProductsDetailsComponent } from './Admin-Panel/products-details/products-details.component';
+import { NF404Component } from './Admin-Panel/NotFound/NotFound/nf404.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
+    CatalogComponent,
+    DistributorComponent,
+    ListProductComponent,
+    HomeComponent,
+    ProductsDetailsComponent,
     DashBoardComponent,
     RegistroComponent,
-    
-    DashBoardComponent,
     UserProfileComponent,
-    ReactiveFComponent
+    ReactiveFComponent,
+    NF404Component
   ],
   imports: [
     BrowserModule,

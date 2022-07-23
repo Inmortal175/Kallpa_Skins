@@ -27,6 +27,7 @@ export class UserProfileComponent implements OnInit {
   UrlBase = 'http://localhost:8000'
 
   usuario!:Usuarios[];
+  
   public formData!: FormGroup;
 
   constructor(private usuarioService:UsuariosService, private formBuilder:FormBuilder) {

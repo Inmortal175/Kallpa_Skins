@@ -4,7 +4,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-reactive-f',
   templateUrl: './reactive-f.component.html',
-  styleUrls: ['./reactive-f.component.css']
+  styleUrls: [
+    './reactive-f.component.css',
+  ]
 })
 export class ReactiveFComponent implements OnInit {
 
